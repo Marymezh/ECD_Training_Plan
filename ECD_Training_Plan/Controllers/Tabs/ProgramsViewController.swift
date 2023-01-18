@@ -1,0 +1,61 @@
+//
+//  ProgramsViewController.swift
+//  ECD_Training_Plan
+//
+//  Created by Мария Межова on 10.08.2022.
+//
+
+import UIKit
+
+class ProgramsViewController: UITableViewController {
+    
+    let programsArray = ProgramDescriptionStorage.programArray
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.backgroundColor = .systemTeal
+        tableView.register(ProgramTableViewCell.self, forCellReuseIdentifier: String(describing: ProgramTableViewCell.self))
+        tableView.isScrollEnabled = false
+
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ProgramTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProgramTableViewCell.self), for: indexPath) as! ProgramTableViewCell
+        
+        cell.program = programsArray[indexPath.section]
+        cell.backgroundView?.alpha = 0.3
+
+        
+        return cell
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return programsArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
+    }
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .systemTeal
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let tableViewHeight = Double(tableView.frame.size.height - (navigationController?.navigationBar.frame.size.height)! - (tabBarController?.tabBar.frame.size.height)!)
+        
+        
+        return tableViewHeight / (Double(programsArray.count) + 0.5)
+    }
+
+}
+

@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A23A58D29779E9300DA11DF /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A58C29779E9200DA11DF /* ProgramDescription.swift */; };
+		1A23A58F29779F0000DA11DF /* ProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A58E29779F0000DA11DF /* ProgramTableViewCell.swift */; };
+		1A23A59129779F2900DA11DF /* ProgramDescriptionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A59029779F2900DA11DF /* ProgramDescriptionStorage.swift */; };
+		1A23A5942977A7FA00DA11DF /* ExtensionsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A5932977A7FA00DA11DF /* ExtensionsUIView.swift */; };
 		1A76E30728A388E400BCEF91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30628A388E400BCEF91 /* AppDelegate.swift */; };
 		1A76E30928A388E400BCEF91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30828A388E400BCEF91 /* SceneDelegate.swift */; };
-		1A76E30B28A388E400BCEF91 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30A28A388E400BCEF91 /* HomeViewController.swift */; };
+		1A76E30B28A388E400BCEF91 /* ProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */; };
 		1A76E31028A388EB00BCEF91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A76E30F28A388EB00BCEF91 /* Assets.xcassets */; };
 		1A76E31328A388EB00BCEF91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A76E31128A388EB00BCEF91 /* LaunchScreen.storyboard */; };
 		1A76E32028A38C7100BCEF91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E31F28A38C7100BCEF91 /* ProfileViewController.swift */; };
@@ -25,10 +29,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A23A58C29779E9200DA11DF /* ProgramDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescription.swift; sourceTree = "<group>"; };
+		1A23A58E29779F0000DA11DF /* ProgramTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTableViewCell.swift; sourceTree = "<group>"; };
+		1A23A59029779F2900DA11DF /* ProgramDescriptionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDescriptionStorage.swift; sourceTree = "<group>"; };
+		1A23A5932977A7FA00DA11DF /* ExtensionsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsUIView.swift; sourceTree = "<group>"; };
 		1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECD_Training_Plan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A76E30628A388E400BCEF91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A76E30828A388E400BCEF91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A76E30A28A388E400BCEF91 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewController.swift; sourceTree = "<group>"; };
 		1A76E30F28A388EB00BCEF91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A76E31228A388EB00BCEF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A76E31428A388EB00BCEF91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A23A58B29779E4B00DA11DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A23A58C29779E9200DA11DF /* ProgramDescription.swift */,
+				1A23A58E29779F0000DA11DF /* ProgramTableViewCell.swift */,
+				1A23A59029779F2900DA11DF /* ProgramDescriptionStorage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A23A5922977A7E800DA11DF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1A23A5932977A7FA00DA11DF /* ExtensionsUIView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1A76E2FA28A388E400BCEF91 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +100,7 @@
 		1A76E30528A388E400BCEF91 /* ECD_Training_Plan */ = {
 			isa = PBXGroup;
 			children = (
+				1A23A5922977A7E800DA11DF /* Helpers */,
 				1A76E32328A38D7800BCEF91 /* Managers */,
 				1A76E31E28A38C1600BCEF91 /* Other */,
 				1A76E31D28A38C1000BCEF91 /* Views */,
@@ -133,7 +160,8 @@
 		1A76E33428A390E000BCEF91 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				1A76E30A28A388E400BCEF91 /* HomeViewController.swift */,
+				1A23A58B29779E4B00DA11DF /* Models */,
+				1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */,
 				1A76E31F28A38C7100BCEF91 /* ProfileViewController.swift */,
 				1A76E32128A38C9200BCEF91 /* TabBarController.swift */,
 			);
@@ -231,12 +259,16 @@
 				1A76E32928A38E3E00BCEF91 /* PostViewController.swift in Sources */,
 				1A76E33128A38E9200BCEF91 /* AuthManager.swift in Sources */,
 				1A76E32F28A38E8600BCEF91 /* DatabaseManager.swift in Sources */,
-				1A76E30B28A388E400BCEF91 /* HomeViewController.swift in Sources */,
+				1A23A58D29779E9300DA11DF /* ProgramDescription.swift in Sources */,
+				1A76E30B28A388E400BCEF91 /* ProgramsViewController.swift in Sources */,
 				1A76E30728A388E400BCEF91 /* AppDelegate.swift in Sources */,
 				1A76E32728A38E1F00BCEF91 /* RegisterViewController.swift in Sources */,
 				1A76E32528A38E1300BCEF91 /* SignInViewController.swift in Sources */,
+				1A23A5942977A7FA00DA11DF /* ExtensionsUIView.swift in Sources */,
+				1A23A58F29779F0000DA11DF /* ProgramTableViewCell.swift in Sources */,
 				1A76E32028A38C7100BCEF91 /* ProfileViewController.swift in Sources */,
 				1A76E32D28A38E7000BCEF91 /* IAPManager.swift in Sources */,
+				1A23A59129779F2900DA11DF /* ProgramDescriptionStorage.swift in Sources */,
 				1A76E32228A38C9200BCEF91 /* TabBarController.swift in Sources */,
 				1A76E32B28A38E4E00BCEF91 /* CreatePostViewController.swift in Sources */,
 				1A76E30928A388E400BCEF91 /* SceneDelegate.swift in Sources */,
@@ -387,7 +419,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +448,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

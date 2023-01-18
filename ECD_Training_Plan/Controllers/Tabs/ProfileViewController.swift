@@ -13,12 +13,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.tintColor = .darkGray
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Sign Out",
             style: .done,
             target: self,
             action: #selector(didTapSignOut))
     }
+    
     
     @objc private func didTapSignOut() {
         
