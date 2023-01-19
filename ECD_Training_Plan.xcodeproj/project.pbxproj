@@ -26,6 +26,7 @@
 		1A76E32F28A38E8600BCEF91 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32E28A38E8600BCEF91 /* DatabaseManager.swift */; };
 		1A76E33128A38E9200BCEF91 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33028A38E9200BCEF91 /* AuthManager.swift */; };
 		1A76E33328A38E9F00BCEF91 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33228A38E9F00BCEF91 /* StorageManager.swift */; };
+		1A815AFC29780EF100B77A52 /* SelectedProgramTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		1A76E32E28A38E8600BCEF91 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1A76E33028A38E9200BCEF91 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1A76E33228A38E9F00BCEF91 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProgramTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				1A23A58B29779E4B00DA11DF /* Models */,
 				1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */,
+				1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */,
 				1A76E31F28A38C7100BCEF91 /* ProfileViewController.swift */,
 				1A76E32128A38C9200BCEF91 /* TabBarController.swift */,
 			);
@@ -267,6 +270,7 @@
 				1A23A5942977A7FA00DA11DF /* ExtensionsUIView.swift in Sources */,
 				1A23A58F29779F0000DA11DF /* ProgramTableViewCell.swift in Sources */,
 				1A76E32028A38C7100BCEF91 /* ProfileViewController.swift in Sources */,
+				1A815AFC29780EF100B77A52 /* SelectedProgramTableViewController.swift in Sources */,
 				1A76E32D28A38E7000BCEF91 /* IAPManager.swift in Sources */,
 				1A23A59129779F2900DA11DF /* ProgramDescriptionStorage.swift in Sources */,
 				1A76E32228A38C9200BCEF91 /* TabBarController.swift in Sources */,

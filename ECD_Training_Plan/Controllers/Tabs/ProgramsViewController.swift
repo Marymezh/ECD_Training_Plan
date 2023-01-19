@@ -13,6 +13,9 @@ class ProgramsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 25, weight: .bold)]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Programs", style: .plain, target: nil, action: nil)
         tableView.backgroundColor = .systemTeal
         tableView.register(ProgramTableViewCell.self, forCellReuseIdentifier: String(describing: ProgramTableViewCell.self))
         tableView.isScrollEnabled = false
@@ -46,7 +49,11 @@ class ProgramsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        
+                let selectedProgramVC = SelectedProgramTableViewController()
+                selectedProgramVC.title = programsArray[indexPath.section].programName
+                navigationController?.pushViewController(selectedProgramVC, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
