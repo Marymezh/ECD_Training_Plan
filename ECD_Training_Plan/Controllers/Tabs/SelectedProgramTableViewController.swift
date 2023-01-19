@@ -12,10 +12,7 @@ class SelectedProgramTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 25, weight: .bold)]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         editButtonItem.title = "Add"
