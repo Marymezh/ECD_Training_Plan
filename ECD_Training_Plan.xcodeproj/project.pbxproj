@@ -27,6 +27,8 @@
 		1A76E33128A38E9200BCEF91 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33028A38E9200BCEF91 /* AuthManager.swift */; };
 		1A76E33328A38E9F00BCEF91 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33228A38E9F00BCEF91 /* StorageManager.swift */; };
 		1A815AFC29780EF100B77A52 /* SelectedProgramTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */; };
+		1A815AFE2979104300B77A52 /* SelectedWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFD2979104300B77A52 /* SelectedWorkoutTableViewController.swift */; };
+		1A815B002979202800B77A52 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFF2979202800B77A52 /* NewCommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		1A76E33028A38E9200BCEF91 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1A76E33228A38E9F00BCEF91 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProgramTableViewController.swift; sourceTree = "<group>"; };
+		1A815AFD2979104300B77A52 /* SelectedWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWorkoutTableViewController.swift; sourceTree = "<group>"; };
+		1A815AFF2979202800B77A52 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 				1A23A58B29779E4B00DA11DF /* Models */,
 				1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */,
 				1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */,
+				1A815AFD2979104300B77A52 /* SelectedWorkoutTableViewController.swift */,
+				1A815AFF2979202800B77A52 /* NewCommentViewController.swift */,
 				1A76E31F28A38C7100BCEF91 /* ProfileViewController.swift */,
 				1A76E32128A38C9200BCEF91 /* TabBarController.swift */,
 			);
@@ -267,6 +273,8 @@
 				1A76E30728A388E400BCEF91 /* AppDelegate.swift in Sources */,
 				1A76E32728A38E1F00BCEF91 /* RegisterViewController.swift in Sources */,
 				1A76E32528A38E1300BCEF91 /* SignInViewController.swift in Sources */,
+				1A815AFE2979104300B77A52 /* SelectedWorkoutTableViewController.swift in Sources */,
+				1A815B002979202800B77A52 /* NewCommentViewController.swift in Sources */,
 				1A23A5942977A7FA00DA11DF /* ExtensionsUIView.swift in Sources */,
 				1A23A58F29779F0000DA11DF /* ProgramTableViewCell.swift in Sources */,
 				1A76E32028A38C7100BCEF91 /* ProfileViewController.swift in Sources */,
