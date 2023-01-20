@@ -57,7 +57,7 @@ class SelectedProgramTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedWorkoutVC = SelectedWorkoutTableViewController()
+        let selectedWorkoutVC = SelectedWorkoutViewController()
         selectedWorkoutVC.title = "Workout \(indexPath.row + 1)"
         navigationController?.pushViewController(selectedWorkoutVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
