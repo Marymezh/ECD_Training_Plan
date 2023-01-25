@@ -28,7 +28,8 @@
 		1A76E33328A38E9F00BCEF91 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33228A38E9F00BCEF91 /* StorageManager.swift */; };
 		1A815AFC29780EF100B77A52 /* SelectedProgramTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */; };
 		1A815AFE2979104300B77A52 /* SelectedWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFD2979104300B77A52 /* SelectedWorkoutViewController.swift */; };
-		1A815B002979202800B77A52 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFF2979202800B77A52 /* NewCommentViewController.swift */; };
+		1A815B112980DDD500B77A52 /* SelectedWorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815B102980DDD400B77A52 /* SelectedWorkoutHeaderView.swift */; };
+		1A815B142980E41700B77A52 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A815B132980E41700B77A52 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,7 @@
 		1A76E33228A38E9F00BCEF91 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProgramTableViewController.swift; sourceTree = "<group>"; };
 		1A815AFD2979104300B77A52 /* SelectedWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWorkoutViewController.swift; sourceTree = "<group>"; };
-		1A815AFF2979202800B77A52 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
+		1A815B102980DDD400B77A52 /* SelectedWorkoutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWorkoutHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A815B142980E41700B77A52 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +172,7 @@
 				1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */,
 				1A815AFB29780EF100B77A52 /* SelectedProgramTableViewController.swift */,
 				1A815AFD2979104300B77A52 /* SelectedWorkoutViewController.swift */,
-				1A815AFF2979202800B77A52 /* NewCommentViewController.swift */,
+				1A815B102980DDD400B77A52 /* SelectedWorkoutHeaderView.swift */,
 				1A76E31F28A38C7100BCEF91 /* ProfileViewController.swift */,
 				1A76E32128A38C9200BCEF91 /* TabBarController.swift */,
 			);
@@ -212,6 +214,7 @@
 			);
 			name = ECD_Training_Plan;
 			packageProductDependencies = (
+				1A815B132980E41700B77A52 /* IQKeyboardManagerSwift */,
 			);
 			productName = ECD_Training_Plan;
 			productReference = 1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */;
@@ -242,6 +245,7 @@
 			);
 			mainGroup = 1A76E2FA28A388E400BCEF91;
 			packageReferences = (
+				1A815B122980E41700B77A52 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 1A76E30428A388E400BCEF91 /* Products */;
 			projectDirPath = "";
@@ -274,11 +278,11 @@
 				1A76E32F28A38E8600BCEF91 /* DatabaseManager.swift in Sources */,
 				1A23A58D29779E9300DA11DF /* ProgramDescription.swift in Sources */,
 				1A76E30B28A388E400BCEF91 /* ProgramsViewController.swift in Sources */,
+				1A815B112980DDD500B77A52 /* SelectedWorkoutHeaderView.swift in Sources */,
 				1A76E30728A388E400BCEF91 /* AppDelegate.swift in Sources */,
 				1A76E32728A38E1F00BCEF91 /* RegisterViewController.swift in Sources */,
 				1A76E32528A38E1300BCEF91 /* SignInViewController.swift in Sources */,
 				1A815AFE2979104300B77A52 /* SelectedWorkoutViewController.swift in Sources */,
-				1A815B002979202800B77A52 /* NewCommentViewController.swift in Sources */,
 				1A23A5942977A7FA00DA11DF /* ExtensionsUIView.swift in Sources */,
 				1A23A58F29779F0000DA11DF /* ProgramTableViewCell.swift in Sources */,
 				1A76E32028A38C7100BCEF91 /* ProfileViewController.swift in Sources */,
@@ -500,6 +504,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A815B122980E41700B77A52 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A815B132980E41700B77A52 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A815B122980E41700B77A52 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A76E2FB28A388E400BCEF91 /* Project object */;
 }
