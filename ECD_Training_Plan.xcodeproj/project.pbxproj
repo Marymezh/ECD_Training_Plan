@@ -211,6 +211,8 @@
 			dependencies = (
 			);
 			name = ECD_Training_Plan;
+			packageProductDependencies = (
+			);
 			productName = ECD_Training_Plan;
 			productReference = 1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +241,8 @@
 				Base,
 			);
 			mainGroup = 1A76E2FA28A388E400BCEF91;
+			packageReferences = (
+			);
 			productRefGroup = 1A76E30428A388E400BCEF91 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
