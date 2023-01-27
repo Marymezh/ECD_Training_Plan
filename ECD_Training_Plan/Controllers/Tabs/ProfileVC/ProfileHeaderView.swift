@@ -10,7 +10,6 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     private var baseInset: CGFloat { return 15 }
-    private var innerInset: CGFloat { return 10 }
     
     var onNameChanged:(()-> Void)?
     
@@ -46,9 +45,14 @@ class ProfileHeaderView: UIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(changePhoto), for: .touchUpInside)
         button.toAutoLayout()
         return button
     }()
+    
+    @objc func changePhoto() {
+        showImagePickerController()
+    }
     
     private let changeUserNameButton: UIButton = {
         let button = UIButton()
@@ -69,7 +73,7 @@ class ProfileHeaderView: UIView {
             textfield.placeholder = "Enter new name here"
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        let changeAction = UIAlertAction(title: "Save", style: .cancel) { action in
+        let changeAction = UIAlertAction(title: "Save", style: .default) { action in
             self.userNameLabel.text = alertController.textFields?[0].text
             self.onNameChanged?()
         }
@@ -88,8 +92,8 @@ class ProfileHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         self.backgroundColor = .systemTeal
-        
         self.addSubviews(userPhotoImage, userNameLabel, changeUserNameButton, changeImageButton)
         
         let constraints = [
@@ -120,4 +124,23 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
+}
+
+extension ProfileHeaderView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        
+        func showImagePickerController() {
+            let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            self.window?.rootViewController?.present(picker, animated: true)
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            self.window?.rootViewController?.dismiss(animated: true)
+            
+            guard let image = info[.editedImage] as? UIImage else { return }
+            self.userPhotoImage.image = image
+            
+        }
 }
