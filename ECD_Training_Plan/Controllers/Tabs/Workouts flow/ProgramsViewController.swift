@@ -62,11 +62,18 @@ class ProgramsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let selectedProgramVC = SelectedProgramTableViewController()
-        selectedProgramVC.title = programsArray[indexPath.section].programName
-        navigationController?.pushViewController(selectedProgramVC, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0, 1, 2 :
+            let selectedProgramVC = FreePlansTableViewController()
+            selectedProgramVC.title = programsArray[indexPath.section].programName
+            navigationController?.pushViewController(selectedProgramVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        default:
+            let selectedProgramVC = PaidPlansTableViewController()
+            selectedProgramVC.title = programsArray[indexPath.section].programName
+            navigationController?.pushViewController(selectedProgramVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

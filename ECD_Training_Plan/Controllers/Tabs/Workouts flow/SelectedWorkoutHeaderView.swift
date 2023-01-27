@@ -16,14 +16,6 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
     private var baseInset: CGFloat { return 15 }
     private var innerInset: CGFloat { return 10 }
     
-    private let backgroundView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "general")
-        view.clipsToBounds = true
-        view.contentMode = .scaleAspectFill
-        view.toAutoLayout()
-        return view
-    }()
     
     private let workoutView: UIView = {
         let view = UIView()
@@ -70,6 +62,7 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         return button
     }()
     
+    
     @objc func commentSent() {
         guard let text = commentTextView.text else {return}
         self.onSendCommentPush?(text)
@@ -78,23 +71,18 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    static let identifier = "TableHeaderView"
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
-//
-//    override init(reuseIdentifier: String?) {
-//        super.init(reuseIdentifier: reuseIdentifier)
         
+        if let backgroundImage = UIImage(named: "general") {
+        backgroundColor = UIColor(patternImage: backgroundImage)
+        }
         commentTextView.delegate = self
-        self.addSubviews(backgroundView, workoutView, workoutDescriptionLabel, commentTextView, addCommentButton)
+        self.addSubviews (workoutView, commentTextView, addCommentButton)
+        workoutView.addSubview(workoutDescriptionLabel)
         
         let constraints = [
-            
-            backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             workoutView.topAnchor.constraint(equalTo: self.topAnchor, constant: baseInset),
             workoutView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: baseInset),

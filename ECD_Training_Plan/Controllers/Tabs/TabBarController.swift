@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
         
         let programsVC = ProgramsViewController()
         programsVC.title = "Programs"
-        let profileVC = ProfileViewController()
+        let profileVC = ProfileTableViewController()
         profileVC.title = "Profile"
         
         programsVC.navigationItem.largeTitleDisplayMode = .always
