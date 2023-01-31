@@ -11,13 +11,20 @@ class ProfileTableViewController: UITableViewController {
     
     private let movements = ["", "Back Squat", "Front Squat", "Squat Clean", "Power Clean", "Clean and Jerk", "Snatch", "Deadlift"]
     
+    private var weights = ["", "00", "00", "00", "00", "00", "00", "00"]
+    
     private let headerView = ProfileHeaderView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateWeights()
         setupNavigationBar()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
     }
     
     private func setupTableView() {
@@ -40,6 +47,14 @@ class ProfileTableViewController: UITableViewController {
     @objc private func didTapSignOut() {
         
     }
+    
+    private func updateWeights() {
+        if let savedWeights = UserDefaults.standard.object(forKey: "savedWeights")  as? [String] {
+            if savedWeights != [""] {
+                weights = savedWeights
+            }
+        }
+    }
 
     // MARK: - Table view data source
 //
@@ -59,13 +74,19 @@ class ProfileTableViewController: UITableViewController {
             cell.textLabel?.text = "YOUR PERSONAL RECORDS"
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-            
             return cell
         default:
             let cell: ProfileTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProfileTableViewCell.self), for: indexPath) as! ProfileTableViewCell
             
             cell.backgroundColor = UIColor(named: "tealLight")
             cell.movementLabel.text = movements[indexPath.row]
+            cell.weightIsSet = { text in
+                self.weights.remove(at: indexPath.row)
+                self.weights.insert(text, at: indexPath.row)
+                tableView.reloadData()
+                UserDefaults.standard.set(self.weights, forKey: "savedWeights")
+            }
+            cell.weightLabel.text = "\(weights[indexPath.row]) kg"
 
             return cell
         }

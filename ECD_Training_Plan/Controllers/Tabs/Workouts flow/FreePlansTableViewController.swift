@@ -69,7 +69,6 @@ class FreePlansTableViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
         cell.detailTextLabel?.text = formatter.string(from: Date())
-      
         return cell
     }
     

@@ -11,6 +11,10 @@ class ProfileTableViewCell: UITableViewCell {
     
     private var baseInset: CGFloat { return 16 }
     
+//    var weights = ["","00", "00", "00", "00", "00", "00", "00"]
+    
+    var weightIsSet: ((String) -> Void)?
+    
     let movementLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -22,7 +26,8 @@ class ProfileTableViewCell: UITableViewCell {
     let weightLabel: UILabel = {
         let label = UILabel()
         label.toAutoLayout()
-        label.text = "00 kg"
+        label.textAlignment = .right
+//        label.text = "00 kg"
         return label
     }()
     
@@ -32,6 +37,7 @@ class ProfileTableViewCell: UITableViewCell {
         textField.tintColor = .black
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField .frame.height))
         textField.leftViewMode = .always
+        textField.keyboardType = .numberPad
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 0.5
         textField.layer.cornerRadius = 5
@@ -50,7 +56,9 @@ class ProfileTableViewCell: UITableViewCell {
     @objc func saveTapped () {
         if let text = weightTextField.text {
             if text != "" {
-                weightLabel.text = "\(text) kg"
+ //               weightLabel.text = "\(text) kg"
+                self.weightIsSet?(text)
+//                UserDefaults.standard.set(text, forKey: "weight")
                 weightTextField.text = ""
             } else {
                 weightLabel.text = "00 kg"
@@ -74,6 +82,8 @@ class ProfileTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+     //   setWeightValue()
         
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(movementLabel)
@@ -110,4 +120,15 @@ class ProfileTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate(constraints)
 }
+    
+//    private func setWeightValue() {
+//        
+//        if let text = UserDefaults.standard.object(forKey: "weight") as? String {
+//            if text != "" {
+//                weightLabel.text = "\(text) kg"
+//            } else {
+//                weightLabel.text = "00 kg"
+//            }
+//        }
+//    }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class PaidPlansTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class PaidPlansTableViewController: UITableViewController {
         selectedWorkoutVC.title = "Workout \(indexPath.row + 1)"
         selectedWorkoutVC.onCompletion = {
             self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            
         }
         navigationController?.pushViewController(selectedWorkoutVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)

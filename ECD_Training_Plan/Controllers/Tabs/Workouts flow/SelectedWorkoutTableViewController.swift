@@ -23,8 +23,6 @@ class SelectedWorkoutTableViewController: UITableViewController {
         view.backgroundColor = UIColor(named: "darkGreen")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(workoutDone))
         navigationItem.rightBarButtonItem?.tintColor = .white
-        
-   //     headerView.workoutDescriptionLabel.text = workoutTask
 
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: String(describing: CommentTableViewCell.self))
