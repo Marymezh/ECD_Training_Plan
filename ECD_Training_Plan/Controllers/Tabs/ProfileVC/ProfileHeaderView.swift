@@ -54,7 +54,7 @@ class ProfileHeaderView: UIView {
         return image
     }()
     
-    let userNameLabel: UILabel = {
+    private let userNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textColor = .black
@@ -122,14 +122,6 @@ class ProfileHeaderView: UIView {
         self.window?.rootViewController?.present(alertController, animated: true)
         
     }
-    
-    private func showErrorAlert(text: String) {
-        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.view.tintColor = .red
-        alert.addAction(cancelAction)
-        self.window?.rootViewController?.present(alert, animated: true)
-    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -143,17 +135,12 @@ class ProfileHeaderView: UIView {
     }
     
     private func setNewUserNameMode() {
-        if mode == nil {
-            if let labelText = UserDefaults.standard.object(forKey: "userName") as? String {
-                if labelText != "" {
-                    mode = .currentUser
-                    changeUserNameButton.setTitle(buttonTitle, for: .normal)
-                    userNameLabel.text = userName
-                } else {
-                    mode = .unkonwnUser
-                    changeUserNameButton.setTitle(buttonTitle, for: .normal)
-                    userNameLabel.text = userName
-                }
+        if let text = UserDefaults.standard.object(forKey: "userName") as? String {
+            if text != "" {
+                mode = .currentUser
+                changeUserNameButton.setTitle(buttonTitle, for: .normal)
+                userNameLabel.text = userName
+                loadImage() 
             }
         }
     }
@@ -189,9 +176,22 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    private func loadImage() {
+        guard let data = UserDefaults.standard.data(forKey: "userImage") else {return}
+        let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+        let image = UIImage(data: decoded)
+        self.userPhotoImage.image = image
+    }
+    
+    private func showErrorAlert(text: String) {
+        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.view.tintColor = .red
+        alert.addAction(cancelAction)
+        self.window?.rootViewController?.present(alert, animated: true)
+    }
     
     
-
 }
 
 extension ProfileHeaderView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -209,6 +209,8 @@ extension ProfileHeaderView: UIImagePickerControllerDelegate, UINavigationContro
             
             guard let image = info[.editedImage] as? UIImage else { return }
             self.userPhotoImage.image = image
-            
+            guard let data = image.jpegData(compressionQuality: 0.5) else {return}
+            let encoded = try! PropertyListEncoder().encode(data)
+            UserDefaults.standard.set(encoded, forKey: "userImage")
         }
 }

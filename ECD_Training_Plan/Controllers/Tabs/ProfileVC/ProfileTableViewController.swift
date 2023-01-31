@@ -55,14 +55,16 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
-            
+            cell.backgroundColor = UIColor(named: "tealLight")
             cell.textLabel?.text = "YOUR PERSONAL RECORDS"
+            cell.textLabel?.textAlignment = .center
             cell.textLabel?.font = UIFont.systemFont(ofSize: 22, weight: .bold)
             
             return cell
         default:
             let cell: ProfileTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProfileTableViewCell.self), for: indexPath) as! ProfileTableViewCell
             
+            cell.backgroundColor = UIColor(named: "tealLight")
             cell.movementLabel.text = movements[indexPath.row]
 
             return cell
@@ -76,7 +78,6 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         headerView.onNameChanged = {
-//            self.headerView.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
             tableView.performBatchUpdates(nil, completion: nil)
         }
         return headerView

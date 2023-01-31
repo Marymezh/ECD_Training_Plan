@@ -59,33 +59,44 @@ class CommentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setupUI()
+        loadUserData()
+    }
+    
+    private func setupUI() {
+    contentView.layer.borderWidth = 0.5
+    contentView.layer.borderColor = UIColor.black.cgColor
+    contentView.backgroundColor = UIColor(named: "lightGreen")
+    contentView.addSubviews(userImage,userNameLabel, dateLabel, commentTexLabel)
+    
+    let constraints = [
+        
+        userImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: baseInset),
+        userImage.heightAnchor.constraint(equalToConstant: 40),
+        userImage.widthAnchor.constraint(equalTo: userImage.heightAnchor),
+        userImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: baseInset),
+        
+        userNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: baseInset),
+        userNameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
+        userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
+        
+        dateLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 5),
+        dateLabel.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor),
+        dateLabel.trailingAnchor.constraint(equalTo: userNameLabel.trailingAnchor),
+        
+        commentTexLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: baseInset),
+        commentTexLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
+        commentTexLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
+        commentTexLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -baseInset)
+    ]
+    
+    NSLayoutConstraint.activate(constraints)
+}
+    private func loadUserData() {
         self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
-        contentView.layer.borderWidth = 0.5
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.backgroundColor = UIColor(named: "lightGreen")
-        contentView.addSubviews(userImage,userNameLabel, dateLabel, commentTexLabel)
-        
-        let constraints = [
-            
-            userImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: baseInset),
-            userImage.heightAnchor.constraint(equalToConstant: 40),
-            userImage.widthAnchor.constraint(equalTo: userImage.heightAnchor),
-            userImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: baseInset),
-            
-            userNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: baseInset),
-            userNameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
-            userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
-            
-            dateLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 5),
-            dateLabel.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: userNameLabel.trailingAnchor),
-            
-            commentTexLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: baseInset),
-            commentTexLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
-            commentTexLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
-            commentTexLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -baseInset)
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
+        guard let data = UserDefaults.standard.data(forKey: "userImage") else {return}
+        let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+        let image = UIImage(data: decoded)
+        self.userImage.image = image
     }
 }

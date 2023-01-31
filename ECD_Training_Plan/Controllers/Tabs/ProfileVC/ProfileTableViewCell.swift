@@ -13,6 +13,8 @@ class ProfileTableViewCell: UITableViewCell {
     
     let movementLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.numberOfLines = 0
         label.toAutoLayout()
         return label
     }()
@@ -27,6 +29,7 @@ class ProfileTableViewCell: UITableViewCell {
     private let weightTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "00 kg"
+        textField.tintColor = .black
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField .frame.height))
         textField.leftViewMode = .always
         textField.layer.borderColor = UIColor.black.cgColor
@@ -38,7 +41,7 @@ class ProfileTableViewCell: UITableViewCell {
     private let saveButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-        button.tintColor = .systemTeal
+        button.tintColor = .black
         button.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button
@@ -46,8 +49,13 @@ class ProfileTableViewCell: UITableViewCell {
     
     @objc func saveTapped () {
         if let text = weightTextField.text {
-            weightLabel.text = "\(text) kg"
-            weightTextField.text = ""
+            if text != "" {
+                weightLabel.text = "\(text) kg"
+                weightTextField.text = ""
+            } else {
+                weightLabel.text = "00 kg"
+                weightTextField.text = ""
+            }
         }
     }
     
@@ -55,7 +63,6 @@ class ProfileTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.distribution = .equalSpacing
         stackView.axis = .horizontal
-     //   stackView.spacing = 8
         stackView.alignment = .leading
         stackView.toAutoLayout()
         return stackView
