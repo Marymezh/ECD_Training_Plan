@@ -26,7 +26,7 @@ class CommentTableViewCell: UITableViewCell {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 1
-        label.text = "Current User"
+   //     label.text = "Current User"
         label.toAutoLayout()
         return label
     }()
@@ -59,7 +59,7 @@ class CommentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        contentView.layer.cornerRadius = 15
+        self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
         contentView.layer.borderWidth = 0.5
         contentView.layer.borderColor = UIColor.black.cgColor
         contentView.backgroundColor = UIColor(named: "lightGreen")

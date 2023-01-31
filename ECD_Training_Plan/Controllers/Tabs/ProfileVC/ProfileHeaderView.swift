@@ -25,14 +25,14 @@ class ProfileHeaderView: UIView {
         return image
     }()
     
-    private let userNameLabel: UILabel = {
+    let userNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
         label.sizeToFit()
-        label.text = "Current User"
+    //    label.text = "Current User"
         label.toAutoLayout()
         return label
     }()
@@ -56,7 +56,7 @@ class ProfileHeaderView: UIView {
     
     private let changeUserNameButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Change name", for: .normal)
+      //  button.setTitle("Set name", for: .normal)
         button.backgroundColor = .darkGray
         button.setTitleColor(.white, for: .normal)
         button.layer.borderWidth = 0.5
@@ -74,8 +74,13 @@ class ProfileHeaderView: UIView {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         let changeAction = UIAlertAction(title: "Save", style: .default) { action in
-            self.userNameLabel.text = alertController.textFields?[0].text
-            self.onNameChanged?()
+            if let text = alertController.textFields?[0].text,
+               text != "" {
+                UserDefaults.standard.set(text, forKey: "userName")
+                self.onNameChanged?()
+            } else {
+                self.showErrorAlert(text: "User name can not be blank!")
+            }
         }
         
         alertController.addAction(changeAction)
@@ -85,6 +90,14 @@ class ProfileHeaderView: UIView {
         self.window?.rootViewController?.present(alertController, animated: true)
         
     }
+    
+    private func showErrorAlert(text: String) {
+        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.view.tintColor = .red
+        alert.addAction(cancelAction)
+        self.window?.rootViewController?.present(alert, animated: true)
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -92,7 +105,12 @@ class ProfileHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        if userNameLabel.text == "" {
+            changeUserNameButton.setTitle("Set name", for: .normal)
+        } else {
+            changeUserNameButton.setTitle("Change name", for: .normal)
+        }
+        self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
         self.backgroundColor = .systemTeal
         self.addSubviews(userPhotoImage, userNameLabel, changeUserNameButton, changeImageButton)
         

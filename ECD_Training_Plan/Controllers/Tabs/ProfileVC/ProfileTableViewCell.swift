@@ -17,7 +17,7 @@ class ProfileTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let weightLabel: UILabel = {
+    let weightLabel: UILabel = {
         let label = UILabel()
         label.toAutoLayout()
         label.text = "00 kg"

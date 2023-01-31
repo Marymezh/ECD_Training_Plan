@@ -67,7 +67,7 @@ class ProfileTableViewController: UITableViewController {
             let cell: ProfileTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProfileTableViewCell.self), for: indexPath) as! ProfileTableViewCell
             
             cell.movementLabel.text = movements[indexPath.row]
-            
+
             return cell
         }
     }
@@ -79,6 +79,8 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         headerView.onNameChanged = {
+//            self.headerView.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
+            self.headerView.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
             tableView.performBatchUpdates(nil, completion: nil)
         }
         return headerView
