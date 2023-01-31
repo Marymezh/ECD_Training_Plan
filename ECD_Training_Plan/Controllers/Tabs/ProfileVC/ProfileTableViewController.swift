@@ -12,13 +12,10 @@ class ProfileTableViewController: UITableViewController {
     private let movements = ["", "Back Squat", "Front Squat", "Squat Clean", "Power Clean", "Clean and Jerk", "Snatch", "Deadlift"]
     
     private let headerView = ProfileHeaderView()
-
-    private var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        activityIndicator.isHidden = false
         setupNavigationBar()
         setupTableView()
     }
@@ -80,7 +77,6 @@ class ProfileTableViewController: UITableViewController {
         
         headerView.onNameChanged = {
 //            self.headerView.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
-            self.headerView.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
             tableView.performBatchUpdates(nil, completion: nil)
         }
         return headerView

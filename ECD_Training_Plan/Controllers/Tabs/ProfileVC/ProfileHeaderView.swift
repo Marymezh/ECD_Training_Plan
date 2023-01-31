@@ -7,11 +7,40 @@
 
 import UIKit
 
+enum Mode {
+    case unkonwnUser
+    case currentUser
+}
+
 class ProfileHeaderView: UIView {
     
     private var baseInset: CGFloat { return 15 }
     
     var onNameChanged:(()-> Void)?
+    
+    var mode: Mode?
+    
+    private var userName: String {
+        switch mode {
+        case .unkonwnUser:
+            return "Unknown User"
+        case .currentUser:
+            return UserDefaults.standard.object(forKey: "userName") as? String ?? ""
+        default:
+            return ""
+        }
+    }
+    
+    private var buttonTitle: String {
+        switch mode {
+        case .unkonwnUser:
+            return "Set user name"
+        case.currentUser:
+            return "Change user name"
+        default:
+            return ""
+        }
+    }
     
     private let userPhotoImage: UIImageView = {
         let image = UIImageView()
@@ -32,7 +61,7 @@ class ProfileHeaderView: UIView {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.sizeToFit()
-    //    label.text = "Current User"
+        label.text = "Unknown User"
         label.toAutoLayout()
         return label
     }()
@@ -56,7 +85,7 @@ class ProfileHeaderView: UIView {
     
     private let changeUserNameButton: UIButton = {
         let button = UIButton()
-      //  button.setTitle("Set name", for: .normal)
+        button.setTitle("Set user name", for: .normal)
         button.backgroundColor = .darkGray
         button.setTitleColor(.white, for: .normal)
         button.layer.borderWidth = 0.5
@@ -77,6 +106,9 @@ class ProfileHeaderView: UIView {
             if let text = alertController.textFields?[0].text,
                text != "" {
                 UserDefaults.standard.set(text, forKey: "userName")
+                self.mode = .currentUser
+                self.userNameLabel.text = self.userName
+                self.changeUserNameButton.setTitle(self.buttonTitle, for: .normal)
                 self.onNameChanged?()
             } else {
                 self.showErrorAlert(text: "User name can not be blank!")
@@ -102,15 +134,31 @@ class ProfileHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        if userNameLabel.text == "" {
-            changeUserNameButton.setTitle("Set name", for: .normal)
-        } else {
-            changeUserNameButton.setTitle("Change name", for: .normal)
+
+        setNewUserNameMode()
+        setupUI()
+    }
+    
+    private func setNewUserNameMode() {
+        if mode == nil {
+            if let labelText = UserDefaults.standard.object(forKey: "userName") as? String {
+                if labelText != "" {
+                    mode = .currentUser
+                    changeUserNameButton.setTitle(buttonTitle, for: .normal)
+                    userNameLabel.text = userName
+                } else {
+                    mode = .unkonwnUser
+                    changeUserNameButton.setTitle(buttonTitle, for: .normal)
+                    userNameLabel.text = userName
+                }
+            }
         }
-        self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
+    }
+    
+    private func setupUI () {
         self.backgroundColor = .systemTeal
         self.addSubviews(userPhotoImage, userNameLabel, changeUserNameButton, changeImageButton)
         
@@ -121,7 +169,6 @@ class ProfileHeaderView: UIView {
             userPhotoImage.widthAnchor.constraint(equalTo: userPhotoImage.heightAnchor),
             userPhotoImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -baseInset*2),
 
-            
             userNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             userNameLabel.leadingAnchor.constraint(equalTo: userPhotoImage.trailingAnchor, constant: baseInset),
             userNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -baseInset),
@@ -141,6 +188,9 @@ class ProfileHeaderView: UIView {
         
         NSLayoutConstraint.activate(constraints)
     }
+    
+    
+    
 
 }
 
