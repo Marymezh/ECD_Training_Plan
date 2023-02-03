@@ -26,7 +26,6 @@ class CommentTableViewCell: UITableViewCell {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 1
-   //     label.text = "Current User"
         label.toAutoLayout()
         return label
     }()
@@ -34,7 +33,7 @@ class CommentTableViewCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yyyy  HH:mm"
+        formatter.dateFormat = "dd MMM yyyy  HH:mm"
         label.text = formatter.string(from: Date())
         label.toAutoLayout()
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -93,7 +92,12 @@ class CommentTableViewCell: UITableViewCell {
     NSLayoutConstraint.activate(constraints)
 }
     private func loadUserData() {
-        self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
+        if UserDefaults.standard.object(forKey: "userName") as? String != nil {
+            self.userNameLabel.text = UserDefaults.standard.object(forKey: "userName") as? String
+        } else {
+            self.userNameLabel.text = "Current User"
+        }
+        
         guard let data = UserDefaults.standard.data(forKey: "userImage") else {return}
         let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
         let image = UIImage(data: decoded)

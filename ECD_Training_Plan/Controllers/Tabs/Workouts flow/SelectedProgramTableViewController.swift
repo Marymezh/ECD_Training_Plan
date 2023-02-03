@@ -37,7 +37,7 @@ class SelectedProgramTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        print ("\(workoutDescription)")
+
     }
     
     private func setupNavbar() {
@@ -57,7 +57,7 @@ class SelectedProgramTableViewController: UITableViewController {
         navigationController?.pushViewController(newWorkoutVC, animated: true)
         newWorkoutVC.onWorkoutSave = { text in
             switch self.title {
-            case "ECD/BEFIT TRAINING PLAN": WorkoutDescriptionStorage.ecd.append(text)
+            case "ECD/BEFIT TRAINING PLAN": WorkoutDescriptionStorage.ecd.insert(text, at: 0)
             case "BODYWEIGHT PLAN": WorkoutDescriptionStorage.bodyweight.append(text)
             case " 'STRUYACH' PLAN": WorkoutDescriptionStorage.struyach.append(text)
             case "BADASS": WorkoutDescriptionStorage.badass.append(text)
@@ -83,14 +83,15 @@ class SelectedProgramTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellID")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
         
         cell.tintColor = .black
         cell.backgroundColor = UIColor(named: "lightGreen")
-        cell.textLabel?.text = "Workout \(indexPath.row + 1)"
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yyyy"
-        cell.detailTextLabel?.text = formatter.string(from: Date())
+        cell.textLabel?.text = "Workout for \(formatter.string(from: Date()))"
+
         return cell
     }
     
@@ -118,7 +119,6 @@ class SelectedProgramTableViewController: UITableViewController {
         selectedWorkoutVC.onCompletion = {
             self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-       // print("\(selectedWorkoutVC.workoutTask)")
         navigationController?.pushViewController(selectedWorkoutVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
         self.tableView.reloadData()

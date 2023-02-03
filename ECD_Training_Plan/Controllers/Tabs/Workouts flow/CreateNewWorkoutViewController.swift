@@ -83,14 +83,13 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
        
        let buttonWidth = view.frame.width/2 - 30
        
-       var textViewHeight: CGFloat = 700
-       
-       if text != "" {
-           textViewHeight = view.frame.height * 0.9
-       } else {
-           textViewHeight = view.frame.height/3
+       var textViewHeight: CGFloat {
+           if text != "" {
+               return view.frame.height * 0.9
+           } else {
+               return view.frame.height/3
+           }
        }
-            
        
        var baseInset: CGFloat { return 15 }
        

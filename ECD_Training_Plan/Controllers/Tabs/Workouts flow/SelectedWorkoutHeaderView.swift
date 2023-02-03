@@ -100,19 +100,20 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         self.addSubviews (workoutView, fullScreenButton, commentTextView, addCommentButton)
         workoutView.addSubview(workoutDescriptionTextView)
         
-        let textViewHeight = (window?.frame.height ?? 900)/4
+        let textViewHeight: CGFloat = 300
         
         let constraints = [
             
             workoutView.topAnchor.constraint(equalTo: self.topAnchor, constant: baseInset),
             workoutView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: baseInset),
             workoutView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -baseInset),
-            workoutView.heightAnchor.constraint(equalTo: workoutDescriptionTextView.heightAnchor, constant: innerInset),
+    //        workoutView.heightAnchor.constraint(equalTo: workoutDescriptionTextView.heightAnchor, constant: innerInset),
             
             workoutDescriptionTextView.topAnchor.constraint(equalTo: workoutView.topAnchor, constant: innerInset),
             workoutDescriptionTextView.leadingAnchor.constraint(equalTo: workoutView.leadingAnchor, constant: innerInset),
             workoutDescriptionTextView.trailingAnchor.constraint(equalTo: workoutView.trailingAnchor, constant: -innerInset),
             workoutDescriptionTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
+            workoutDescriptionTextView.bottomAnchor.constraint(equalTo: workoutView.bottomAnchor, constant: -innerInset),
             
             fullScreenButton.trailingAnchor.constraint(equalTo: workoutDescriptionTextView.trailingAnchor, constant: -innerInset),
             fullScreenButton.bottomAnchor.constraint(equalTo: workoutDescriptionTextView.bottomAnchor, constant: -innerInset),
