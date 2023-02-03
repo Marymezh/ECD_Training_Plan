@@ -7,9 +7,23 @@
 
 import UIKit
 
-class FreePlansTableViewController: UITableViewController {
+class SelectedProgramTableViewController: UITableViewController {
     
-    private var numberOfWorkouts: Int = 0
+    private var numberOfWorkouts: Int {
+        switch title {
+        case "ECD/BEFIT TRAINING PLAN":
+            return WorkoutDescriptionStorage.ecd.count
+        case "BODYWEIGHT PLAN":
+            return WorkoutDescriptionStorage.bodyweight.count
+            case " 'STRUYACH' PLAN":
+            return WorkoutDescriptionStorage.struyach.count
+            case "BADASS":
+            return WorkoutDescriptionStorage.badass.count
+            case "HARD PRESS":
+            return WorkoutDescriptionStorage.hardpress.count
+            default: fatalError("Unable to count number of workouts")
+            }
+        }
     
     private var workoutDescription: [String] = []
 
@@ -42,10 +56,18 @@ class FreePlansTableViewController: UITableViewController {
         newWorkoutVC.title = "Add new workout"
         navigationController?.pushViewController(newWorkoutVC, animated: true)
         newWorkoutVC.onWorkoutSave = { text in
-            self.workoutDescription.append(text)
-            self.numberOfWorkouts += 1
+            switch self.title {
+            case "ECD/BEFIT TRAINING PLAN": WorkoutDescriptionStorage.ecd.append(text)
+            case "BODYWEIGHT PLAN": WorkoutDescriptionStorage.bodyweight.append(text)
+            case " 'STRUYACH' PLAN": WorkoutDescriptionStorage.struyach.append(text)
+            case "BADASS": WorkoutDescriptionStorage.badass.append(text)
+            case "HARD PRESS": WorkoutDescriptionStorage.hardpress.append(text)
+            default: fatalError("Unable to identify category of workout")
+            }
+ //           self.numberOfWorkouts += 1
         }
     }
+
     
 
     // MARK: - Table view data source and delegate methods
@@ -75,7 +97,24 @@ class FreePlansTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedWorkoutVC = SelectedWorkoutTableViewController(frame: .zero, style: .grouped)
         selectedWorkoutVC.title = "Workout \(indexPath.row + 1)"
-        selectedWorkoutVC.headerView.workoutDescriptionLabel.text = workoutDescription[indexPath.row]
+ //       selectedWorkoutVC.programName = self.title
+ //       selectedWorkoutVC.headerView.workoutDescriptionLabel.text = workoutDescription[indexPath.row]
+        switch self.title {
+        case "ECD/BEFIT TRAINING PLAN":
+            workoutDescription = WorkoutDescriptionStorage.ecd
+        case "BODYWEIGHT PLAN":
+            workoutDescription = WorkoutDescriptionStorage.bodyweight
+        case " 'STRUYACH' PLAN":
+            workoutDescription = WorkoutDescriptionStorage.struyach
+        case "BADASS":
+            workoutDescription = WorkoutDescriptionStorage.badass
+        case "HARD PRESS":
+            workoutDescription = WorkoutDescriptionStorage.hardpress
+        default: fatalError("Unable to load workout description")
+        }
+        selectedWorkoutVC.headerView.workoutDescriptionTextView.text = workoutDescription[indexPath.row]
+        
+        
         selectedWorkoutVC.onCompletion = {
             self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }

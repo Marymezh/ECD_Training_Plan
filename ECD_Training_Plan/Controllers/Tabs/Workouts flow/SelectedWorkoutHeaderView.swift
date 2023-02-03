@@ -28,15 +28,33 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         return view
     }()
     
-    let workoutDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.sizeToFit()
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.layer.borderColor = UIColor.white.cgColor
-        label.toAutoLayout()
-        return label
+    let workoutDescriptionTextView: UITextView = {
+        let textView = UITextView()
+ //       textView.adjustsFontForContentSizeCategory = true
+        textView.sizeToFit()
+        textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        textView.textAlignment = .left
+        textView.isEditable = false
+        textView.layer.borderColor = UIColor.white.cgColor
+        textView.toAutoLayout()
+        return textView
     }()
+    
+    let fullScreenButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(fullScreenPressed), for: .touchUpInside)
+        button.toAutoLayout()
+        return button
+    }()
+    
+    @objc func fullScreenPressed () {
+        let text = workoutDescriptionTextView.text
+        let fullWorkoutDescriptionVC = CreateNewWorkoutViewController()
+        fullWorkoutDescriptionVC.text = text ?? "workout description"
+        self.window?.rootViewController?.present(fullWorkoutDescriptionVC, animated: true)
+    }
     
     let commentTextView: UITextView = {
        let textView = UITextView()
@@ -79,24 +97,31 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         backgroundColor = UIColor(patternImage: backgroundImage)
         }
         commentTextView.delegate = self
-        self.addSubviews (workoutView, commentTextView, addCommentButton)
-        workoutView.addSubview(workoutDescriptionLabel)
+        self.addSubviews (workoutView, fullScreenButton, commentTextView, addCommentButton)
+        workoutView.addSubview(workoutDescriptionTextView)
+        
+        let textViewHeight = (window?.frame.height ?? 900)/4
         
         let constraints = [
             
             workoutView.topAnchor.constraint(equalTo: self.topAnchor, constant: baseInset),
             workoutView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: baseInset),
             workoutView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -baseInset),
+            workoutView.heightAnchor.constraint(equalTo: workoutDescriptionTextView.heightAnchor, constant: innerInset),
             
-            workoutDescriptionLabel.topAnchor.constraint(equalTo: workoutView.topAnchor, constant: innerInset),
-            workoutDescriptionLabel.leadingAnchor.constraint(equalTo: workoutView.leadingAnchor, constant: innerInset),
-            workoutDescriptionLabel.trailingAnchor.constraint(equalTo: workoutView.trailingAnchor, constant: -innerInset),
-            workoutDescriptionLabel.bottomAnchor.constraint(equalTo: workoutView.bottomAnchor, constant: -innerInset),
+            workoutDescriptionTextView.topAnchor.constraint(equalTo: workoutView.topAnchor, constant: innerInset),
+            workoutDescriptionTextView.leadingAnchor.constraint(equalTo: workoutView.leadingAnchor, constant: innerInset),
+            workoutDescriptionTextView.trailingAnchor.constraint(equalTo: workoutView.trailingAnchor, constant: -innerInset),
+            workoutDescriptionTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
+            
+            fullScreenButton.trailingAnchor.constraint(equalTo: workoutDescriptionTextView.trailingAnchor, constant: -innerInset),
+            fullScreenButton.bottomAnchor.constraint(equalTo: workoutDescriptionTextView.bottomAnchor, constant: -innerInset),
+            fullScreenButton.heightAnchor.constraint(equalToConstant: 35),
+            fullScreenButton.widthAnchor.constraint(equalTo: fullScreenButton.heightAnchor),
             
             commentTextView.topAnchor.constraint(equalTo: workoutView.bottomAnchor, constant: baseInset),
             commentTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: baseInset),
             commentTextView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -70),
-
             commentTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -baseInset),
             
             addCommentButton.topAnchor.constraint(equalTo: workoutView.bottomAnchor, constant: baseInset),

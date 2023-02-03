@@ -7,11 +7,13 @@
 
 import UIKit
 
-class CreateNewWorkoutViewController: UIViewController {
+class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
+    
+    var text: String = ""
     
     var onWorkoutSave: ((String) -> Void)?
     
-    private let workoutDescriptionTextView: UITextView = {
+     private let workoutDescriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textView.textColor = .black
@@ -62,15 +64,34 @@ class CreateNewWorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "lightGreen")
-        setupSubviews()
         
+        if text != "" {
+            workoutDescriptionTextView.text = text
+            workoutDescriptionTextView.isEditable = false
+            workoutDescriptionTextView.adjustsFontForContentSizeCategory = true
+            addButton.isHidden = true
+            cancelButton.isHidden = true
+        }
+        
+        setupSubviews()
+        workoutDescriptionTextView.delegate = self
+        workoutDescriptionTextView.becomeFirstResponder()
     }
     
    func setupSubviews() {
         view.addSubviews(workoutDescriptionTextView, addButton, cancelButton)
        
        let buttonWidth = view.frame.width/2 - 30
-       let textViewHeight = view.frame.height/3
+       
+       var textViewHeight: CGFloat = 700
+       
+       if text != "" {
+           textViewHeight = view.frame.height * 0.9
+       } else {
+           textViewHeight = view.frame.height/3
+       }
+            
+       
        var baseInset: CGFloat { return 15 }
        
        let constraints = [

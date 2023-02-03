@@ -41,7 +41,7 @@ class CommentTableViewCell: UITableViewCell {
         return label
     }()
     
-    let commentTexLabel: UILabel = {
+    let commentTextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textColor = .black
@@ -67,7 +67,7 @@ class CommentTableViewCell: UITableViewCell {
     contentView.layer.borderWidth = 0.5
     contentView.layer.borderColor = UIColor.black.cgColor
     contentView.backgroundColor = UIColor(named: "lightGreen")
-    contentView.addSubviews(userImage,userNameLabel, dateLabel, commentTexLabel)
+    contentView.addSubviews(userImage,userNameLabel, dateLabel, commentTextLabel)
     
     let constraints = [
         
@@ -84,10 +84,10 @@ class CommentTableViewCell: UITableViewCell {
         dateLabel.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor),
         dateLabel.trailingAnchor.constraint(equalTo: userNameLabel.trailingAnchor),
         
-        commentTexLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: baseInset),
-        commentTexLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
-        commentTexLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
-        commentTexLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -baseInset)
+        commentTextLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: baseInset),
+        commentTextLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: baseInset),
+        commentTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -baseInset),
+        commentTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -baseInset)
     ]
     
     NSLayoutConstraint.activate(constraints)
