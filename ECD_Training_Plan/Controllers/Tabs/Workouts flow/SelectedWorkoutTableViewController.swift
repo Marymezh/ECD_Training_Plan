@@ -8,8 +8,6 @@
 import UIKit
 
 class SelectedWorkoutTableViewController: UITableViewController {
-    
-    var programName: String?
 
     private var commentsArray = ["Great workout, finished in 10:35 min", "It was too hard for me, only 3 rounds completed"]
     
@@ -23,7 +21,7 @@ class SelectedWorkoutTableViewController: UITableViewController {
         view.backgroundColor = UIColor(named: "darkGreen")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(workoutDone))
         navigationItem.rightBarButtonItem?.tintColor = .white
-
+        
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: String(describing: CommentTableViewCell.self))
         
@@ -45,10 +43,6 @@ class SelectedWorkoutTableViewController: UITableViewController {
     }
 
 // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         

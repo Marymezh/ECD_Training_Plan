@@ -30,7 +30,6 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
     
     let workoutDescriptionTextView: UITextView = {
         let textView = UITextView()
- //       textView.adjustsFontForContentSizeCategory = true
         textView.sizeToFit()
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textView.textAlignment = .left
@@ -44,7 +43,7 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         return textView
     }()
     
-    let fullScreenButton: UIButton = {
+    private let fullScreenButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
         button.tintColor = .black

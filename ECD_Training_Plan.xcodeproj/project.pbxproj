@@ -35,6 +35,7 @@
 		1A88F3E629822ADD00542CC9 /* CreateNewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E529822ADD00542CC9 /* CreateNewWorkoutViewController.swift */; };
 		1A88F3E829823CA100542CC9 /* WorkoutDescriptionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E729823CA100542CC9 /* WorkoutDescriptionStorage.swift */; };
 		1AAD9AC929825883002DE7D1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */; };
+		1AE7B9262990BDAE00CEF275 /* WorkoutDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		1A88F3E529822ADD00542CC9 /* CreateNewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewWorkoutViewController.swift; sourceTree = "<group>"; };
 		1A88F3E729823CA100542CC9 /* WorkoutDescriptionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionStorage.swift; sourceTree = "<group>"; };
 		1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1A23A58C29779E9200DA11DF /* ProgramDescription.swift */,
+				1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */,
 				1A23A58E29779F0000DA11DF /* ProgramTableViewCell.swift */,
 				1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */,
 				1A23A59029779F2900DA11DF /* ProgramDescriptionStorage.swift */,
@@ -306,6 +309,7 @@
 			files = (
 				1A76E32928A38E3E00BCEF91 /* PostViewController.swift in Sources */,
 				1A47DA2F298381210024661D /* ProfileTableViewController.swift in Sources */,
+				1AE7B9262990BDAE00CEF275 /* WorkoutDescription.swift in Sources */,
 				1A76E33128A38E9200BCEF91 /* AuthManager.swift in Sources */,
 				1A76E32F28A38E8600BCEF91 /* DatabaseManager.swift in Sources */,
 				1A23A58D29779E9300DA11DF /* ProgramDescription.swift in Sources */,
