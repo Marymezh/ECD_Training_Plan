@@ -30,7 +30,12 @@ class SelectedProgramTableViewController: UITableViewController {
     private func setupNavbar() {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 25, weight: .bold)]
         self.navigationController?.navigationBar.tintColor = .black
+        #if Admin
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewWorkout))
+        print ("this is admins app")
+        #else
+        print ("this is clients app")
+        #endif
         navigationItem.backBarButtonItem = UIBarButtonItem(title: self.title, style: .plain, target: nil, action: nil)
     }
     

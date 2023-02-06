@@ -36,6 +36,35 @@
 		1A88F3E829823CA100542CC9 /* WorkoutDescriptionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E729823CA100542CC9 /* WorkoutDescriptionStorage.swift */; };
 		1AAD9AC929825883002DE7D1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */; };
 		1AE7B9262990BDAE00CEF275 /* WorkoutDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */; };
+		1AE7B9A22990FBA800CEF275 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32828A38E3E00BCEF91 /* PostViewController.swift */; };
+		1AE7B9A32990FBA800CEF275 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DA2E298381210024661D /* ProfileTableViewController.swift */; };
+		1AE7B9A42990FBA800CEF275 /* WorkoutDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */; };
+		1AE7B9A52990FBA800CEF275 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33028A38E9200BCEF91 /* AuthManager.swift */; };
+		1AE7B9A62990FBA800CEF275 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32E28A38E8600BCEF91 /* DatabaseManager.swift */; };
+		1AE7B9A72990FBA800CEF275 /* ProgramDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A58C29779E9200DA11DF /* ProgramDescription.swift */; };
+		1AE7B9A82990FBA800CEF275 /* ProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */; };
+		1AE7B9A92990FBA800CEF275 /* SelectedWorkoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815B102980DDD400B77A52 /* SelectedWorkoutHeaderView.swift */; };
+		1AE7B9AA2990FBA800CEF275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30628A388E400BCEF91 /* AppDelegate.swift */; };
+		1AE7B9AB2990FBA800CEF275 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32628A38E1E00BCEF91 /* RegisterViewController.swift */; };
+		1AE7B9AC2990FBA800CEF275 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DA30298381E40024661D /* ProfileTableViewCell.swift */; };
+		1AE7B9AD2990FBA800CEF275 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32428A38E1300BCEF91 /* SignInViewController.swift */; };
+		1AE7B9AE2990FBA800CEF275 /* SelectedWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A815AFD2979104300B77A52 /* SelectedWorkoutTableViewController.swift */; };
+		1AE7B9AF2990FBA800CEF275 /* SelectedProgramTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E32982297800542CC9 /* SelectedProgramTableViewController.swift */; };
+		1AE7B9B02990FBA800CEF275 /* ExtensionsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A5932977A7FA00DA11DF /* ExtensionsUIView.swift */; };
+		1AE7B9B12990FBA800CEF275 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A47DA2C29837E0A0024661D /* ProfileHeaderView.swift */; };
+		1AE7B9B22990FBA800CEF275 /* ProgramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A58E29779F0000DA11DF /* ProgramTableViewCell.swift */; };
+		1AE7B9B32990FBA800CEF275 /* WorkoutDescriptionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E729823CA100542CC9 /* WorkoutDescriptionStorage.swift */; };
+		1AE7B9B42990FBA800CEF275 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32C28A38E7000BCEF91 /* IAPManager.swift */; };
+		1AE7B9B52990FBA800CEF275 /* ProgramDescriptionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23A59029779F2900DA11DF /* ProgramDescriptionStorage.swift */; };
+		1AE7B9B62990FBA800CEF275 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32128A38C9200BCEF91 /* TabBarController.swift */; };
+		1AE7B9B72990FBA800CEF275 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */; };
+		1AE7B9B82990FBA800CEF275 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E32A28A38E4E00BCEF91 /* CreatePostViewController.swift */; };
+		1AE7B9B92990FBA800CEF275 /* CreateNewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F3E529822ADD00542CC9 /* CreateNewWorkoutViewController.swift */; };
+		1AE7B9BA2990FBA800CEF275 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E30828A388E400BCEF91 /* SceneDelegate.swift */; };
+		1AE7B9BB2990FBA800CEF275 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76E33228A38E9F00BCEF91 /* StorageManager.swift */; };
+		1AE7B9BD2990FBA800CEF275 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1AE7B99F2990FBA800CEF275 /* IQKeyboardManagerSwift */; };
+		1AE7B9BF2990FBA800CEF275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A76E31128A388EB00BCEF91 /* LaunchScreen.storyboard */; };
+		1AE7B9C02990FBA800CEF275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A76E30F28A388EB00BCEF91 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,13 +75,13 @@
 		1A47DA2C29837E0A0024661D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		1A47DA2E298381210024661D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		1A47DA30298381E40024661D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECD_Training_Plan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A76E30328A388E400BCEF91 /* ECD Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ECD Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A76E30628A388E400BCEF91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A76E30828A388E400BCEF91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1A76E30A28A388E400BCEF91 /* ProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewController.swift; sourceTree = "<group>"; };
 		1A76E30F28A388EB00BCEF91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A76E31228A388EB00BCEF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1A76E31428A388EB00BCEF91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A76E31428A388EB00BCEF91 /* ECD Admin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ECD Admin-Info.plist"; sourceTree = "<group>"; };
 		1A76E32128A38C9200BCEF91 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1A76E32428A38E1300BCEF91 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1A76E32628A38E1E00BCEF91 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +98,8 @@
 		1A88F3E729823CA100542CC9 /* WorkoutDescriptionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionStorage.swift; sourceTree = "<group>"; };
 		1AAD9AC829825883002DE7D1 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		1AE7B9252990BDAE00CEF275 /* WorkoutDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescription.swift; sourceTree = "<group>"; };
+		1AE7B9C42990FBA800CEF275 /* ECD Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ECD Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE7B9C52990FBA800CEF275 /* ECD Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ECD Client-Info.plist"; path = "/Users/maria_mezhova/Desktop/ECD_Training_Plan/ECD Client-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +108,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A815B142980E41700B77A52 /* IQKeyboardManagerSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7B9BC2990FBA800CEF275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE7B9BD2990FBA800CEF275 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,14 +147,17 @@
 			isa = PBXGroup;
 			children = (
 				1A76E30528A388E400BCEF91 /* ECD_Training_Plan */,
+				1A76E31428A388EB00BCEF91 /* ECD Admin-Info.plist */,
 				1A76E30428A388E400BCEF91 /* Products */,
+				1AE7B9C52990FBA800CEF275 /* ECD Client-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		1A76E30428A388E400BCEF91 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */,
+				1A76E30328A388E400BCEF91 /* ECD Admin.app */,
+				1AE7B9C42990FBA800CEF275 /* ECD Client.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +171,6 @@
 				1A76E31D28A38C1000BCEF91 /* Views */,
 				1A76E31C28A38C0800BCEF91 /* Controllers */,
 				1A76E31A28A38BF500BCEF91 /* Models */,
-				1A76E31428A388EB00BCEF91 /* Info.plist */,
 			);
 			path = ECD_Training_Plan;
 			sourceTree = "<group>";
@@ -234,9 +275,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A76E30228A388E400BCEF91 /* ECD_Training_Plan */ = {
+		1A76E30228A388E400BCEF91 /* ECD Admin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A76E31728A388EB00BCEF91 /* Build configuration list for PBXNativeTarget "ECD_Training_Plan" */;
+			buildConfigurationList = 1A76E31728A388EB00BCEF91 /* Build configuration list for PBXNativeTarget "ECD Admin" */;
 			buildPhases = (
 				1A76E2FF28A388E400BCEF91 /* Sources */,
 				1A76E30028A388E400BCEF91 /* Frameworks */,
@@ -246,12 +287,32 @@
 			);
 			dependencies = (
 			);
-			name = ECD_Training_Plan;
+			name = "ECD Admin";
 			packageProductDependencies = (
 				1A815B132980E41700B77A52 /* IQKeyboardManagerSwift */,
 			);
 			productName = ECD_Training_Plan;
-			productReference = 1A76E30328A388E400BCEF91 /* ECD_Training_Plan.app */;
+			productReference = 1A76E30328A388E400BCEF91 /* ECD Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1AE7B99E2990FBA800CEF275 /* ECD Client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE7B9C12990FBA800CEF275 /* Build configuration list for PBXNativeTarget "ECD Client" */;
+			buildPhases = (
+				1AE7B9A12990FBA800CEF275 /* Sources */,
+				1AE7B9BC2990FBA800CEF275 /* Frameworks */,
+				1AE7B9BE2990FBA800CEF275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ECD Client";
+			packageProductDependencies = (
+				1AE7B99F2990FBA800CEF275 /* IQKeyboardManagerSwift */,
+			);
+			productName = ECD_Training_Plan;
+			productReference = 1AE7B9C42990FBA800CEF275 /* ECD Client.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +346,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A76E30228A388E400BCEF91 /* ECD_Training_Plan */,
+				1A76E30228A388E400BCEF91 /* ECD Admin */,
+				1AE7B99E2990FBA800CEF275 /* ECD Client */,
 			);
 		};
 /* End PBXProject section */
@@ -297,6 +359,15 @@
 			files = (
 				1A76E31328A388EB00BCEF91 /* LaunchScreen.storyboard in Resources */,
 				1A76E31028A388EB00BCEF91 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7B9BE2990FBA800CEF275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE7B9BF2990FBA800CEF275 /* LaunchScreen.storyboard in Resources */,
+				1AE7B9C02990FBA800CEF275 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +404,39 @@
 				1A88F3E629822ADD00542CC9 /* CreateNewWorkoutViewController.swift in Sources */,
 				1A76E30928A388E400BCEF91 /* SceneDelegate.swift in Sources */,
 				1A76E33328A38E9F00BCEF91 /* StorageManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7B9A12990FBA800CEF275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE7B9A22990FBA800CEF275 /* PostViewController.swift in Sources */,
+				1AE7B9A32990FBA800CEF275 /* ProfileTableViewController.swift in Sources */,
+				1AE7B9A42990FBA800CEF275 /* WorkoutDescription.swift in Sources */,
+				1AE7B9A52990FBA800CEF275 /* AuthManager.swift in Sources */,
+				1AE7B9A62990FBA800CEF275 /* DatabaseManager.swift in Sources */,
+				1AE7B9A72990FBA800CEF275 /* ProgramDescription.swift in Sources */,
+				1AE7B9A82990FBA800CEF275 /* ProgramsViewController.swift in Sources */,
+				1AE7B9A92990FBA800CEF275 /* SelectedWorkoutHeaderView.swift in Sources */,
+				1AE7B9AA2990FBA800CEF275 /* AppDelegate.swift in Sources */,
+				1AE7B9AB2990FBA800CEF275 /* RegisterViewController.swift in Sources */,
+				1AE7B9AC2990FBA800CEF275 /* ProfileTableViewCell.swift in Sources */,
+				1AE7B9AD2990FBA800CEF275 /* SignInViewController.swift in Sources */,
+				1AE7B9AE2990FBA800CEF275 /* SelectedWorkoutTableViewController.swift in Sources */,
+				1AE7B9AF2990FBA800CEF275 /* SelectedProgramTableViewController.swift in Sources */,
+				1AE7B9B02990FBA800CEF275 /* ExtensionsUIView.swift in Sources */,
+				1AE7B9B12990FBA800CEF275 /* ProfileHeaderView.swift in Sources */,
+				1AE7B9B22990FBA800CEF275 /* ProgramTableViewCell.swift in Sources */,
+				1AE7B9B32990FBA800CEF275 /* WorkoutDescriptionStorage.swift in Sources */,
+				1AE7B9B42990FBA800CEF275 /* IAPManager.swift in Sources */,
+				1AE7B9B52990FBA800CEF275 /* ProgramDescriptionStorage.swift in Sources */,
+				1AE7B9B62990FBA800CEF275 /* TabBarController.swift in Sources */,
+				1AE7B9B72990FBA800CEF275 /* CommentTableViewCell.swift in Sources */,
+				1AE7B9B82990FBA800CEF275 /* CreatePostViewController.swift in Sources */,
+				1AE7B9B92990FBA800CEF275 /* CreateNewWorkoutViewController.swift in Sources */,
+				1AE7B9BA2990FBA800CEF275 /* SceneDelegate.swift in Sources */,
+				1AE7B9BB2990FBA800CEF275 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +577,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56475B8NZH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ECD_Training_Plan/Info.plist;
+				INFOPLIST_FILE = "ECD Admin-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -485,6 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DAdmin";
 				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -502,7 +607,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56475B8NZH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ECD_Training_Plan/Info.plist;
+				INFOPLIST_FILE = "ECD Admin-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -514,6 +619,67 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DAdmin";
+				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		1AE7B9C22990FBA800CEF275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56475B8NZH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ECD Client-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1AE7B9C32990FBA800CEF275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56475B8NZH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ECD Client-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -534,11 +700,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A76E31728A388EB00BCEF91 /* Build configuration list for PBXNativeTarget "ECD_Training_Plan" */ = {
+		1A76E31728A388EB00BCEF91 /* Build configuration list for PBXNativeTarget "ECD Admin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A76E31828A388EB00BCEF91 /* Debug */,
 				1A76E31928A388EB00BCEF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AE7B9C12990FBA800CEF275 /* Build configuration list for PBXNativeTarget "ECD Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE7B9C22990FBA800CEF275 /* Debug */,
+				1AE7B9C32990FBA800CEF275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -554,12 +729,25 @@
 				kind = branch;
 			};
 		};
+		1AE7B9A02990FBA800CEF275 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		1A815B132980E41700B77A52 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A815B122980E41700B77A52 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		1AE7B99F2990FBA800CEF275 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AE7B9A02990FBA800CEF275 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
