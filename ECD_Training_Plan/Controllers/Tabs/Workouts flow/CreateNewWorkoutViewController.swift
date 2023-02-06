@@ -27,7 +27,7 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
         return textView
     }()
     
-    private let addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add", for: .normal)
         button.backgroundColor = UIColor(named: "darkGreen")
@@ -46,7 +46,7 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    private let cancelButton: UIButton = {
+    private lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
         button.backgroundColor = UIColor(named: "darkGreen")
@@ -65,7 +65,15 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "lightGreen")
-
+        #if Admin
+        if text != "" {
+            workoutDescriptionTextView.text = text
+            workoutDescriptionTextView.isEditable = true
+            let beginning = workoutDescriptionTextView.beginningOfDocument
+            workoutDescriptionTextView.selectedTextRange = workoutDescriptionTextView.textRange(from: beginning, to: beginning)
+            addButton.setTitle("Save", for: .normal)
+        }
+        #else
         if text != "" {
             workoutDescriptionTextView.text = text
             workoutDescriptionTextView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
@@ -73,14 +81,21 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
             workoutDescriptionTextView.isEditable = false
             workoutDescriptionTextView.isUserInteractionEnabled = true
             workoutDescriptionTextView.dataDetectorTypes = .link
-      //      workoutDescriptionTextView.adjustsFontForContentSizeCategory = true
             addButton.isHidden = true
             cancelButton.isHidden = true
         }
-        
+        #endif
         setupSubviews()
 
     }
+    
+    
+//    @objc func editWorkout() {
+//        if let text = workoutDescriptionTextView.text {
+//            self.onWorkoutSave?(text)
+//            navigationController?.popViewController(animated: true)
+//        }
+//    }
     
    func setupSubviews() {
        workoutDescriptionTextView.delegate = self
@@ -92,6 +107,12 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
        
        var textViewHeight: CGFloat {
            if text != "" {
+               #if Admin
+               
+               return view.frame.height/3
+               
+               #endif
+               
                return view.frame.height * 0.9
            } else {
                return view.frame.height/4

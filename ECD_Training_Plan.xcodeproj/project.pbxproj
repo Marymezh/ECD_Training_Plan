@@ -185,7 +185,6 @@
 		1A76E31C28A38C0800BCEF91 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A76E33728A3910900BCEF91 /* Posts */,
 				1A76E33528A390F400BCEF91 /* Auth */,
 				1A76E33428A390E000BCEF91 /* Tabs */,
 			);
@@ -213,6 +212,7 @@
 		1A76E32328A38D7800BCEF91 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1A76E33728A3910900BCEF91 /* Posts */,
 				1A76E32C28A38E7000BCEF91 /* IAPManager.swift */,
 				1A76E32E28A38E8600BCEF91 /* DatabaseManager.swift */,
 				1A76E33028A38E9200BCEF91 /* AuthManager.swift */,
@@ -649,7 +649,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-DClient";
 				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -679,7 +679,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-DClient";
 				PRODUCT_BUNDLE_IDENTIFIER = "marymezh.ECD-Training-Plan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

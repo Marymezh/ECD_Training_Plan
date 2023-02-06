@@ -43,7 +43,7 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         return textView
     }()
     
-    private let fullScreenButton: UIButton = {
+    private lazy var fullScreenButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
         button.tintColor = .black
@@ -74,7 +74,7 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         return textView
     }()
     
-    private let addCommentButton: UIButton = {
+    private lazy var addCommentButton: UIButton = {
         let button = UIButton()
         button.toAutoLayout()
         button.tintColor = .white
@@ -100,6 +100,11 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         backgroundColor = UIColor(patternImage: backgroundImage)
         }
         commentTextView.delegate = self
+        
+        #if Admin
+        fullScreenButton.isHidden = true
+        #endif
+        
         self.addSubviews (workoutView, fullScreenButton, commentTextView, addCommentButton)
         workoutView.addSubview(workoutDescriptionTextView)
         

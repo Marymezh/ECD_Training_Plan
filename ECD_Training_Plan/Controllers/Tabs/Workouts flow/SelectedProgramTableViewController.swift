@@ -10,14 +10,16 @@ import UIKit
 class SelectedProgramTableViewController: UITableViewController {
     
     private var numberOfWorkouts: Int = 0
-    private var workoutDescription: [WorkoutDescription] = []
+    private var listOfWorkouts: [WorkoutDescription] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "darkGreen")
         setupNavbar()
         setupTableView()
-      
+        #if Admin
+        setupGuestureRecognizer()
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,11 +32,10 @@ class SelectedProgramTableViewController: UITableViewController {
     private func setupNavbar() {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 25, weight: .bold)]
         self.navigationController?.navigationBar.tintColor = .black
+        // Admin's app functionality allows to add new workouts, when the clients' - doesn't
         #if Admin
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewWorkout))
-        print ("this is admins app")
         #else
-        print ("this is clients app")
         #endif
         navigationItem.backBarButtonItem = UIBarButtonItem(title: self.title, style: .plain, target: nil, action: nil)
     }
@@ -46,18 +47,56 @@ class SelectedProgramTableViewController: UITableViewController {
     private func loadWorkoutsList() {
         switch self.title {
         case "ECD/BEFIT TRAINING PLAN":
-            workoutDescription = WorkoutDescriptionStorage.ecd
+            listOfWorkouts = WorkoutDescriptionStorage.ecd
         case "BODYWEIGHT PLAN":
-            workoutDescription = WorkoutDescriptionStorage.bodyweight
+            listOfWorkouts = WorkoutDescriptionStorage.bodyweight
         case " 'STRUYACH' PLAN":
-            workoutDescription = WorkoutDescriptionStorage.struyach
+            listOfWorkouts = WorkoutDescriptionStorage.struyach
         case "BADASS":
-            workoutDescription = WorkoutDescriptionStorage.badass
+            listOfWorkouts = WorkoutDescriptionStorage.badass
         case "HARD PRESS":
-            workoutDescription = WorkoutDescriptionStorage.hardpress
+            listOfWorkouts = WorkoutDescriptionStorage.hardpress
         default: fatalError("Unable to load workout description")
         }
-        numberOfWorkouts = workoutDescription.count
+        numberOfWorkouts = listOfWorkouts.count
+    }
+    
+    // MARK: - Long press guesture to rename item in the table view
+    
+    private func setupGuestureRecognizer() {
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+        tableView.addGestureRecognizer(longpress)
+    }
+    
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                let alertController = UIAlertController(title: "Edit workout", message: "Do you want to edit this workout?", preferredStyle: .alert)
+                
+                let editAction = UIAlertAction(title: "Yes", style: .default) { [self] action in
+                    let workoutVC = CreateNewWorkoutViewController()
+                    workoutVC.title = "Edit workout"
+                    workoutVC.text = listOfWorkouts[indexPath.row].description
+                    navigationController?.pushViewController(workoutVC, animated: true)
+                    workoutVC.onWorkoutSave = { text in
+                        switch self.title {
+                        case "ECD/BEFIT TRAINING PLAN": WorkoutDescriptionStorage.ecd[indexPath.row].description = text
+                        case "BODYWEIGHT PLAN": WorkoutDescriptionStorage.bodyweight[indexPath.row].description = text
+                        case " 'STRUYACH' PLAN": WorkoutDescriptionStorage.struyach[indexPath.row].description = text
+                        case "BADASS": WorkoutDescriptionStorage.badass[indexPath.row].description = text
+                        case "HARD PRESS": WorkoutDescriptionStorage.hardpress[indexPath.row].description = text
+                        default: fatalError("Unable to edit workout")
+                        }
+                  //      self.listOfWorkouts[indexPath.row].description = text
+                    }
+                }
+                let cancelAction = UIAlertAction(title: "No", style: .cancel)
+                alertController.addAction(editAction)
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true)
+            }
+        }
     }
     
     @objc func addNewWorkout() {
@@ -93,17 +132,36 @@ class SelectedProgramTableViewController: UITableViewController {
         
         cell.tintColor = .black
         cell.backgroundColor = UIColor(named: "lightGreen")
-        cell.textLabel?.text = "Workout for \(workoutDescription[indexPath.row].date)"
+        cell.textLabel?.text = "Workout for \(listOfWorkouts[indexPath.row].date)"
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        #if Admin
+        return true
+        #else
+        return false
+        #endif
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            listOfWorkouts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            numberOfWorkouts = listOfWorkouts.count
+            tableView.endUpdates()
+   
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedWorkoutVC = SelectedWorkoutTableViewController(frame: .zero, style: .grouped)
         
-        selectedWorkoutVC.title = "Workout for \(workoutDescription[indexPath.row].date)"
+        selectedWorkoutVC.title = "Workout for \(listOfWorkouts[indexPath.row].date)"
         
-        selectedWorkoutVC.headerView.workoutDescriptionTextView.text = workoutDescription[indexPath.row].description
+        selectedWorkoutVC.headerView.workoutDescriptionTextView.text = listOfWorkouts[indexPath.row].description
         
         
         selectedWorkoutVC.onCompletion = {

@@ -44,7 +44,7 @@ class ProfileTableViewCell: UITableViewCell {
         return textField
     }()
     
-    private let saveButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
         button.tintColor = .black

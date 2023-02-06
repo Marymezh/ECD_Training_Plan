@@ -8,6 +8,6 @@
 import Foundation
 
 struct WorkoutDescription {
-    let description: String
+    var description: String
     let date: String
 }

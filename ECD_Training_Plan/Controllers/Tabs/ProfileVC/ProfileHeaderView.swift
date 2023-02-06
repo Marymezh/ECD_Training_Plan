@@ -66,7 +66,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
     
-    private let changeImageButton: UIButton = {
+    private lazy var changeImageButton: UIButton = {
         let button = UIButton()
         button.setTitle("Change photo", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -83,7 +83,7 @@ class ProfileHeaderView: UIView {
         showImagePickerController()
     }
     
-    private let changeUserNameButton: UIButton = {
+    private lazy var changeUserNameButton: UIButton = {
         let button = UIButton()
         button.setTitle("Set user name", for: .normal)
         button.backgroundColor = .darkGray
