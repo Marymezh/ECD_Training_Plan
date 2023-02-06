@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
     
@@ -64,21 +65,27 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "lightGreen")
-        
+
         if text != "" {
             workoutDescriptionTextView.text = text
+            workoutDescriptionTextView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
+            workoutDescriptionTextView.isSelectable = true
             workoutDescriptionTextView.isEditable = false
-            workoutDescriptionTextView.adjustsFontForContentSizeCategory = true
+            workoutDescriptionTextView.isUserInteractionEnabled = true
+            workoutDescriptionTextView.dataDetectorTypes = .link
+      //      workoutDescriptionTextView.adjustsFontForContentSizeCategory = true
             addButton.isHidden = true
             cancelButton.isHidden = true
         }
         
         setupSubviews()
-        workoutDescriptionTextView.delegate = self
-        workoutDescriptionTextView.becomeFirstResponder()
+
     }
     
    func setupSubviews() {
+       workoutDescriptionTextView.delegate = self
+       workoutDescriptionTextView.becomeFirstResponder()
+       
         view.addSubviews(workoutDescriptionTextView, addButton, cancelButton)
        
        let buttonWidth = view.frame.width/2 - 30
@@ -87,7 +94,7 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
            if text != "" {
                return view.frame.height * 0.9
            } else {
-               return view.frame.height/3
+               return view.frame.height/4
            }
        }
        
@@ -103,6 +110,8 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
         addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: baseInset),
         addButton.heightAnchor.constraint(equalToConstant: 44),
         addButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+//        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+       
         
         cancelButton.topAnchor.constraint(equalTo: workoutDescriptionTextView.bottomAnchor, constant: baseInset),
         cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -baseInset),

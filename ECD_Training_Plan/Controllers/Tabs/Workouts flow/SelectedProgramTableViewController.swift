@@ -58,10 +58,10 @@ class SelectedProgramTableViewController: UITableViewController {
         newWorkoutVC.onWorkoutSave = { text in
             switch self.title {
             case "ECD/BEFIT TRAINING PLAN": WorkoutDescriptionStorage.ecd.insert(text, at: 0)
-            case "BODYWEIGHT PLAN": WorkoutDescriptionStorage.bodyweight.append(text)
-            case " 'STRUYACH' PLAN": WorkoutDescriptionStorage.struyach.append(text)
-            case "BADASS": WorkoutDescriptionStorage.badass.append(text)
-            case "HARD PRESS": WorkoutDescriptionStorage.hardpress.append(text)
+            case "BODYWEIGHT PLAN": WorkoutDescriptionStorage.bodyweight.insert(text, at: 0)
+            case " 'STRUYACH' PLAN": WorkoutDescriptionStorage.struyach.insert(text, at: 0)
+            case "BADASS": WorkoutDescriptionStorage.badass.insert(text, at: 0)
+            case "HARD PRESS": WorkoutDescriptionStorage.hardpress.insert(text, at: 0)
             default: fatalError("Unable to identify category of workout")
             }
  //           self.numberOfWorkouts += 1
@@ -97,7 +97,8 @@ class SelectedProgramTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedWorkoutVC = SelectedWorkoutTableViewController(frame: .zero, style: .grouped)
-        selectedWorkoutVC.title = "Workout \(indexPath.row + 1)"
+        
+        selectedWorkoutVC.title = "Workout for \(DateFormatter().string(from: Date()))"
  //       selectedWorkoutVC.programName = self.title
  //       selectedWorkoutVC.headerView.workoutDescriptionLabel.text = workoutDescription[indexPath.row]
         switch self.title {

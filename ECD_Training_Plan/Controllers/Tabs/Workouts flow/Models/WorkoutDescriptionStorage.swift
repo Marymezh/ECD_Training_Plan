@@ -13,7 +13,7 @@ struct WorkoutDescriptionStorage {
     
    static var bodyweight: [String] = []
     
-   static var struyach = ["4 Rounds for time: \n\n 30 DU, \n 10 Squat Snatch, \n 15 HSPU, \n 10 Clean and Jerk, \n 100 DU, \n 20 box jump over, \n 30 Wall BAll, \n 10 Wall Climb, \n Air Squat, \n 10 m Handstand walk, \n time cap - 25 min \n\n Post your results in the comments! \n\n And don't forget to tag me %)"] 
+   static var struyach = ["4 Rounds for time: \n\n 30 DU, \n 10 Squat Snatch, \n 15 HSPU, \n 10 Clean and Jerk, \n 100 DU, \n 20 box jump over, \n 30 Wall BAll, \n 10 Wall Climb, \n Air Squat, \n 10 m Handstand walk, \n time cap - 25 min \n\n Post your results in the comments! \n\n And don't forget to tag me %) \n https://youtu.be/qHvWC5t7PA8"] 
     
    static var badass = ["15 press", "15 pullups", "15 pushups", "30 crunch", "40 good mornings" ]
     

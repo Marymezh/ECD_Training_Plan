@@ -35,6 +35,10 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textView.textAlignment = .left
         textView.isEditable = false
+        textView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        textView.isSelectable = true
+        textView.isUserInteractionEnabled = true
+        textView.dataDetectorTypes = .link
         textView.layer.borderColor = UIColor.white.cgColor
         textView.toAutoLayout()
         return textView
@@ -107,7 +111,6 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
             workoutView.topAnchor.constraint(equalTo: self.topAnchor, constant: baseInset),
             workoutView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: baseInset),
             workoutView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -baseInset),
-    //        workoutView.heightAnchor.constraint(equalTo: workoutDescriptionTextView.heightAnchor, constant: innerInset),
             
             workoutDescriptionTextView.topAnchor.constraint(equalTo: workoutView.topAnchor, constant: innerInset),
             workoutDescriptionTextView.leadingAnchor.constraint(equalTo: workoutView.leadingAnchor, constant: innerInset),
@@ -115,8 +118,8 @@ class SelectedWorkoutHeaderView: UIView, UITextViewDelegate {
             workoutDescriptionTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
             workoutDescriptionTextView.bottomAnchor.constraint(equalTo: workoutView.bottomAnchor, constant: -innerInset),
             
-            fullScreenButton.trailingAnchor.constraint(equalTo: workoutDescriptionTextView.trailingAnchor, constant: -innerInset),
-            fullScreenButton.bottomAnchor.constraint(equalTo: workoutDescriptionTextView.bottomAnchor, constant: -innerInset),
+            fullScreenButton.trailingAnchor.constraint(equalTo: workoutView.trailingAnchor, constant: -innerInset),
+            fullScreenButton.topAnchor.constraint(equalTo: workoutView.topAnchor, constant: innerInset),
             fullScreenButton.heightAnchor.constraint(equalToConstant: 35),
             fullScreenButton.widthAnchor.constraint(equalTo: fullScreenButton.heightAnchor),
             
