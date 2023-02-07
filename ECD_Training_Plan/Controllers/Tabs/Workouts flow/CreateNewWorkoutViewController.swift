@@ -108,12 +108,10 @@ class CreateNewWorkoutViewController: UIViewController, UITextViewDelegate {
        var textViewHeight: CGFloat {
            if text != "" {
                #if Admin
-               
                return view.frame.height/3
-               
-               #endif
-               
+               #else
                return view.frame.height * 0.9
+               #endif
            } else {
                return view.frame.height/4
            }

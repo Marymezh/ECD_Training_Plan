@@ -61,7 +61,7 @@ class SelectedProgramTableViewController: UITableViewController {
         numberOfWorkouts = listOfWorkouts.count
     }
     
-    // MARK: - Long press guesture to rename item in the table view
+    // MARK: - Long press guesture to edit workout
     
     private func setupGuestureRecognizer() {
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
@@ -88,16 +88,18 @@ class SelectedProgramTableViewController: UITableViewController {
                         case "HARD PRESS": WorkoutDescriptionStorage.hardpress[indexPath.row].description = text
                         default: fatalError("Unable to edit workout")
                         }
-                  //      self.listOfWorkouts[indexPath.row].description = text
                     }
                 }
                 let cancelAction = UIAlertAction(title: "No", style: .cancel)
                 alertController.addAction(editAction)
                 alertController.addAction(cancelAction)
+                alertController.view.tintColor = .darkGray
                 present(alertController, animated: true)
             }
         }
     }
+    
+    // MARK: - Adding new workout
     
     @objc func addNewWorkout() {
         let newWorkoutVC = CreateNewWorkoutViewController()
@@ -127,9 +129,6 @@ class SelectedProgramTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy"
-        
         cell.tintColor = .black
         cell.backgroundColor = UIColor(named: "lightGreen")
         cell.textLabel?.text = "Workout for \(listOfWorkouts[indexPath.row].date)"
@@ -144,6 +143,7 @@ class SelectedProgramTableViewController: UITableViewController {
         return false
         #endif
     }
+    // TODO: - fix removing logics, now it's deleteng only from local listOfWorkouts, but not from the storage
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -152,7 +152,6 @@ class SelectedProgramTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
             numberOfWorkouts = listOfWorkouts.count
             tableView.endUpdates()
-   
         }
     }
     
@@ -162,7 +161,6 @@ class SelectedProgramTableViewController: UITableViewController {
         selectedWorkoutVC.title = "Workout for \(listOfWorkouts[indexPath.row].date)"
         
         selectedWorkoutVC.headerView.workoutDescriptionTextView.text = listOfWorkouts[indexPath.row].description
-        
         
         selectedWorkoutVC.onCompletion = {
             self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
